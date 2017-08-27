@@ -16,10 +16,10 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-            var url = "ws://localhost:5001";
-            var socket = new io.connect(url + "/dd");
+            var url = "http://" + document.domain + ":" + location.port;
+            var socket = new io.connect(url + "/sockets");
             socket.on('msg', function(msg) {
-                $("#connected").html(msg.count);
+                $("#user-count").html(msg.count);
             });
         });
     </script>
